@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="p-block">
+                    <div><h1 id="post-title" class="mb-0 puock-text t-xxl">V2Ray节点服务器一键搭建详细教程，自建翻墙节点完整教程</h1></div>
+                    <div class="options p-flex-sbc mt20">
+                        <div>
+                                                                                                            </div>
+                                                    <div>
+                                <div class="option puock-bg ta3 t-sm mr-1 d-none d-lg-inline-block post-main-size">
+                                    <i class="fa fa-up-right-and-down-left-from-center"></i></div>
+                            </div>
+                                            </div>
+                    <div class="mt20 entry-content-box">
+                        <div class="entry-content content-main puock-text ">
+                                                        <blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>V2Ray是一个模块化的代理软件包，它的核心功能是通过网络将数据从一个地方发送到另一个地方。最初是用于搭建VPN的，但其功能非常强大，几乎可以实现任何代理应用。</p>
+</blockquote>
+<h2 class="wp-block-heading"><strong>V2Ray</strong>节点的优势</h2>
+<p>支持多种传输协议，包括TCP、mKCP、WebSocket等，并且支持伪装，可以有效防止流量特征被识别，从而避免被封锁。此外，V2Ray还支持路由功能，可以根据网站域名或者IP进行灵活的流量分流。</p>
+<p><strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">性能：V2Ray的性能在一般情况下优于Shadowsocks和VPN，特别是在网络环境差的情况下，V2Ray可以提供更好的稳定性和速度。</mark></strong></p>
+<p><strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-cyan-blue-color">安全性：V2Ray使用了新的通信协议VMess，它的流量特征难以被检测，安全性高。</mark></strong></p>
+<p>其他：V2Ray支持多种协议和混淆方式。</p>
+<h2 class="wp-block-heading">搭建前准备-境外服务器</h2>
+<p>从境外云服务器提供商购买一台VPS，费用在每月几刀~几十刀左右。推荐香港、日本、新加坡、美西服务器，对速度和延迟要求较高的用户，建议购买CN2 GIA线路VPS。</p>
+<p>操作系统选择建议：Centos8、Ubuntu、debian</p>
+<p>云服务器商推荐：Greencloud、Racknerd&nbsp;、BandwagonHost等主流厂商，支持支付宝付款。</p>
+<h2 class="wp-block-heading">搭建完整步骤</h2>
+<p>1.SSH连接服务器</p>
+<p>使用SSH客户端例如Xshell、Termius等客户端连接到购买的服务器中</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full is-resized"><img title="V2Ray节点服务器一键搭建详细教程，自建翻墙节点完整教程" alt="V2Ray节点服务器一键搭建详细教程，自建翻墙节点完整教程" fetchpriority="high" decoding="async" width="624" height="373" data-src="https://clashyun.com/wp-content/uploads/2024/04/image-58.png" data-lazy="true" src="https://clashyun.com/wp-content/uploads/2024/04/image-58.png" class="wp-image-120 loaded" style="width:555px;height:auto" srcset="https://clashyun.com/wp-content/uploads/2024/04/image-58.png 624w, https://clashyun.com/wp-content/uploads/2024/04/image-58-300x179.png 300w" sizes="(max-width: 624px) 100vw, 624px" data-loaded="true"><figcaption class="wp-element-caption">ssh连接vps服务器</figcaption></figure>
+</div>
+<p>2.输入一键安装脚本</p>
+<div class="pk-code-tools" data-pre-id="hljs-item-0"><div class="dot"><i></i><i></i><i></i></div><div class="actions"><div><i class="i fa fa-copy cp-code" data-clipboard-target="#hljs-item-0"></i></div></div></div><pre class="wp-block-code hljs language-lua" id="hljs-item-0">bash &lt;(curl -s -L https://git.<span class="hljs-built_in">io</span>/v2ray.sh)  或者   bash &lt;(wget -qO- -o- https://git.<span class="hljs-built_in">io</span>/v2ray.sh)</pre>
+<p>如果提示curl命令找不到command not found，通过以下方法先安装curl</p>
+<p>centos操作系统：</p>
+<div class="pk-code-tools" data-pre-id="hljs-item-1"><div class="dot"><i></i><i></i><i></i></div><div class="actions"><div><i class="i fa fa-copy cp-code" data-clipboard-target="#hljs-item-1"></i></div></div></div><pre class="wp-block-code hljs language-sql" id="hljs-item-1">yum <span class="hljs-keyword">update</span> <span class="hljs-operator">-</span>y <span class="hljs-operator">&amp;&amp;</span> yum install curl <span class="hljs-operator">-</span>y</pre>
+<p>ubuntu操作系统：</p>
+<div class="pk-code-tools" data-pre-id="hljs-item-2"><div class="dot"><i></i><i></i><i></i></div><div class="actions"><div><i class="i fa fa-copy cp-code" data-clipboard-target="#hljs-item-2"></i></div></div></div><pre class="wp-block-code hljs language-sql" id="hljs-item-2">apt<span class="hljs-operator">-</span><span class="hljs-keyword">get</span> <span class="hljs-keyword">update</span> <span class="hljs-operator">-</span>y <span class="hljs-operator">&amp;&amp;</span> apt<span class="hljs-operator">-</span><span class="hljs-keyword">get</span> install curl <span class="hljs-operator">-</span>y</pre>
+<p>安装完成后，系统提示以下信息，表示安装完成了，<strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-purple-color">复制vmess节点链接地址</mark></strong>。</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img title="V2Ray节点服务器一键搭建详细教程，自建翻墙节点完整教程" alt="V2Ray节点服务器一键搭建详细教程，自建翻墙节点完整教程" decoding="async" width="919" height="313" data-src="https://clashyun.com/wp-content/uploads/2024/04/image-59.png" data-lazy="true" src="https://clashyun.com/wp-content/uploads/2024/04/image-59.png" class="wp-image-121 loaded" srcset="https://clashyun.com/wp-content/uploads/2024/04/image-59.png 919w, https://clashyun.com/wp-content/uploads/2024/04/image-59-300x102.png 300w, https://clashyun.com/wp-content/uploads/2024/04/image-59-768x262.png 768w" sizes="(max-width: 919px) 100vw, 919px" data-loaded="true"><figcaption class="wp-element-caption">安装v2ray</figcaption></figure>
+</div>
+<h2 class="wp-block-heading">V2Ray节点导入客户端并连接</h2>
+<p>以下演示windows系统v2rayN客户端导入v2ray节点并使用方法，如果是安卓手机用户，可参考<a href="https://clashyun.com/106.html" target="_blank" rel="noreferrer noopener">v2rayNG 安卓最新版本下载安装和订阅使用详细教程</a>。</p>
+<h3 class="wp-block-heading">1.安装v2rayN客户端</h3>
+<p>请参考本站详细安装教程，完成v2rayN客户端安装。</p>
+<p><a href="https://clashyun.com/87.html" target="_blank" rel="noreferrer noopener">v2rayN windows最新版本下载安装详细教程</a></p>
+<h3 class="wp-block-heading">2.客户端导入节点</h3>
+<p>在客户端中点击【服务器】，接着点击【从剪切板批量导入URL】，输入上面复制的vmess地址</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img title="V2Ray节点服务器一键搭建详细教程，自建翻墙节点完整教程" alt="V2Ray节点服务器一键搭建详细教程，自建翻墙节点完整教程" decoding="async" width="623" height="350" data-src="https://clashyun.com/wp-content/uploads/2024/04/image-60-edited.png" data-lazy="true" src="https://clashyun.com/wp-content/uploads/2024/04/image-60-edited.png" class="wp-image-123 loaded" srcset="https://clashyun.com/wp-content/uploads/2024/04/image-60-edited.png 623w, https://clashyun.com/wp-content/uploads/2024/04/image-60-edited-300x169.png 300w" sizes="(max-width: 623px) 100vw, 623px" data-loaded="true"><figcaption class="wp-element-caption">v2rayN导入节点</figcaption></figure>
+</div>
+<h3 class="wp-block-heading">3.测试节点有效性</h3>
+<p>选择导入的节点后，鼠标右击【设为活动服务器】。然后点击【测试服务器真连接延迟（多选）】，如果显示延迟数字，表示节点搭建成功且能够正常使用。</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img title="V2Ray节点服务器一键搭建详细教程，自建翻墙节点完整教程" alt="V2Ray节点服务器一键搭建详细教程，自建翻墙节点完整教程" loading="lazy" decoding="async" width="760" height="404" data-src="https://clashyun.com/wp-content/uploads/2024/04/image-61.png" data-lazy="true" src="https://clashyun.com/wp-content/themes/wordpress-theme-puock-2.8.0/assets/img/z/load.svg" class="wp-image-124" srcset="https://clashyun.com/wp-content/uploads/2024/04/image-61.png 760w, https://clashyun.com/wp-content/uploads/2024/04/image-61-300x159.png 300w" sizes="(max-width: 760px) 100vw, 760px"><figcaption class="wp-element-caption">测试节点有效性和延迟</figcaption></figure>
+</div>
+<h3 class="wp-block-heading">4.开启代理服务</h3>
+<p>右下角托盘点击V2rayN的图标V，右击鼠标，接着点击【自动配置系统代理】，开启v2rayN代理。</p>
+<div class="wp-block-image">
+<figure class="aligncenter size-full"><img title="V2Ray节点服务器一键搭建详细教程，自建翻墙节点完整教程" alt="V2Ray节点服务器一键搭建详细教程，自建翻墙节点完整教程" loading="lazy" decoding="async" width="400" height="441" data-src="https://clashyun.com/wp-content/uploads/2024/04/image-62.png" data-lazy="true" src="https://clashyun.com/wp-content/themes/wordpress-theme-puock-2.8.0/assets/img/z/load.svg" class="wp-image-125" srcset="https://clashyun.com/wp-content/uploads/2024/04/image-62.png 400w, https://clashyun.com/wp-content/uploads/2024/04/image-62-272x300.png 272w" sizes="(max-width: 400px) 100vw, 400px"><figcaption class="wp-element-caption">开启代理</figcaption></figure>
+</div>
+<h3 class="wp-block-heading">5.使用浏览器打开google测试访问是否正常</h3>
+<div class="wp-block-image">
+<figure class="aligncenter"><img title="V2Ray节点服务器一键搭建详细教程，自建翻墙节点完整教程" alt="V2Ray节点服务器一键搭建详细教程，自建翻墙节点完整教程" loading="lazy" decoding="async" width="895" height="334" data-src="https://clashyun.com/wp-content/uploads/2024/04/image-49.png" data-lazy="true" src="https://clashyun.com/wp-content/themes/wordpress-theme-puock-2.8.0/assets/img/z/load.svg" class="wp-image-103" srcset="https://clashyun.com/wp-content/uploads/2024/04/image-49.png 895w, https://clashyun.com/wp-content/uploads/2024/04/image-49-300x112.png 300w, https://clashyun.com/wp-content/uploads/2024/04/image-49-768x287.png 768w" sizes="(max-width: 895px) 100vw, 895px"><figcaption class="wp-element-caption">测试科学上网</figcaption></figure>
+</div>
+<p>看完教程后，尝试自己搭建专属的v2ray节点吧。</p>
+<h2 class="wp-block-heading">自建v2ray节点的好处</h2>
+<p>自建v2ray节点有许多好处，主要包括：</p>
+<ol>
+<li><strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-purple-color">数据安全</mark></strong>：自建节点意味着你完全掌握自己的数据，无需担心服务提供商可能对你的数据进行的任何访问或使用。</li>
+<li><strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-purple-color">灵活性</mark></strong>：你可以根据自己的需求进行配置，例如选择理想的服务器位置，调整带宽，等等。</li>
+<li><strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-purple-color">稳定性</mark></strong>：有些商业服务可能会不稳定，或者在某些时间段内面临拥堵。自建节点可以避免这些问题。</li>
+<li><strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-purple-color">无限制使用</mark></strong>：自建的v2ray节点不会有机场流量限制，仅受限你的服务器总流量（一般几个T，非常多），你可以按需使用，无需担心超出套餐的流量限制。</li>
+<li><strong><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-vivid-purple-color">隐私保护</mark></strong>：自建节点可以更好地保护你的隐私，因为你的所有数据都只会在你自己控制的服务器和设备之间传输。</li>
+</ol>
+<p><a href="https://clashyun.com/wp-admin/post.php?post=87&amp;action=edit" target="_blank" rel="noreferrer noopener"></a></p>
+<p><a href="https://clashyun.com/wp-admin/post.php?post=87&amp;action=edit" target="_blank" rel="noreferrer noopener"></a></p>
+                                                    </div>
+                                                <div class="t-separator c-sub t-sm mt30">正文完</div>
+                                                <div class="footer-info puock-text mt20">
+                            <div class="mt20 tags"><a href="https://clashyun.com/tag/clash-v2ray/" class="pk-badge pk-badge-sm mr5 mb10"><i class="fa-solid fa-tag"></i> clash v2ray</a><a href="https://clashyun.com/tag/v2ray/" class="pk-badge pk-badge-sm mr5 mb10"><i class="fa-solid fa-tag"></i> V2Ray</a><a href="https://clashyun.com/tag/v2ray%e8%8a%82%e7%82%b9%e5%ae%89%e8%a3%85/" class="pk-badge pk-badge-sm mr5 mb10"><i class="fa-solid fa-tag"></i> v2ray节点安装</a><a href="https://clashyun.com/tag/%e8%87%aa%e5%bb%ba%e8%8a%82%e7%82%b9/" class="pk-badge pk-badge-sm mr5 mb10"><i class="fa-solid fa-tag"></i> 自建节点</a></div>                            <div class="p-flex-sbc mt20 t-sm">
+                                <div>
+                                    <span>发表至：</span><a class=" mr5" href="https://clashyun.com/v2ray-install-config/"><i class="fa-regular fa-folder-open"></i> V2Ray安装配置</a>                                </div>
+                                <div>
+                                    <span class="c-sub"><i class="fa-regular fa-clock"></i> 2024-04-16</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt15 post-action-panel">
+    <div class="post-action-content">
+        <div class="d-flex justify-content-center w-100 c-sub">
+            <div class="circle-button puock-bg text-center " id="post-like" data-id="119">
+                <i class="fa-regular fa-thumbs-up t-md"></i>&nbsp;<span class="t-sm">1</span></div>
+                                    <div class="circle-button puock-bg text-center pk-modal-toggle" title="分享" data-once-load="true" data-url="https://clashyun.com/wp-admin/admin-ajax.php?action=pk_ajax_dialog_post_share&amp;id=119">
+                <i class="fa fa-share-from-square t-md"></i></div>
+            <div class="ls">
+                <div class="circle-button puock-bg text-center post-menu-toggle post-menus-box"><i class="fa fa-bars t-md"></i></div>
+            </div>
+        </div>
+    </div>
+</div>
+                </div>
+
+</body>
+</html>
